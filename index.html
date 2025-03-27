@@ -310,13 +310,17 @@
   <script>
     // Scroll suave
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const section = document.querySelector(link.getAttribute('href'));
-          section.scrollIntoView({ behavior: 'smooth' });
-        });
-      });
+      // Scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section) {
+      e.preventDefault();
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
 
       // Destaque da seção ativa
       const sections = document.querySelectorAll('section[id]');
